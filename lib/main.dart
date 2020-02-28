@@ -4,12 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-// TODO дописать необходимые коментарии
+
 
 var rng = new Random();
 const half = 128; // половина от 256 для дальнейшей работы с цветами
 
-getOppositeNumber(number){ // функция возвращает  число для максимально непохожего цвета
+// функция возвращает  число для максимально непохожего цвета
+getOppositeNumber(number){
   var result;
   if(number < half)
     result = number + half;
@@ -39,13 +40,13 @@ getSixRandomNumbers(){
 var numbers = getSixRandomNumbers();
 
 TextStyle textStyle = TextStyle(
-  color: Color.fromARGB(255, numbers[0], numbers[1], numbers[2]), //  цвет текста
+  color: Color.fromARGB(255, numbers[0], numbers[1], numbers[2]), // устанавливаем цвет текста
   fontSize: 45.0, //  размер шрифта
-  fontStyle: FontStyle.italic
+  fontStyle: FontStyle.italic // шрифт
 );
 
 Text text = Text( // отрисовывает текст
-  'Hey there', // текст
+  'Hey there', // текст который нужно отобразить
   style: textStyle
 );
 
@@ -54,14 +55,15 @@ Center center = Center( // размещаем текст по центру
 );
 
 Container container = Container( // Для Container свойство color означает цвет фона
-  color: Color.fromARGB(255, numbers[3], numbers[4], numbers[5]),
+  color: Color.fromARGB(255, numbers[3], numbers[4], numbers[5]),  //  цвет текста random
   child: center
 );
 
-main() => runApp(
-  Directionality(
+// Когда Dart запускает приложение он вызывает функцию main()
+main() => runApp( // а функция runApp запускает Flutter
+  Directionality( // виджет, который определяет направленность текста
     textDirection: TextDirection.ltr, // направление текста
-    child: GestureDetector( // используется как обычный виджет
+    child: GestureDetector( // виджет, который распознает жесты
 
       onTap: () { // одно из свойств GestureDetector
 
@@ -70,19 +72,19 @@ main() => runApp(
         textStyle = TextStyle( //  виджет для изменения текста
           color: Color.fromARGB(255, numbers[0], numbers[1], numbers[2]), //  цвет текста random
           fontSize: 45.0, //  размер шрифта
-          fontStyle: FontStyle.italic
+          fontStyle: FontStyle.italic // шрифт
         );
 
-        text = Text( // отрисовывает текст
-            'Hey there', // текст
+        text = Text( // собираем приложение повторно
+            'Hey there',
             style: textStyle
         );
 
-        center = Center( // размещаем текст по центру
+        center = Center( // собираем приложение повторно
             child: text
         );
 
-        container = Container( // Для Container свойство color означает цвет фона
+        container = Container( // собираем приложение повторно
             color: Color.fromARGB(255, numbers[3], numbers[4], numbers[5]), // устанавливаем цвет background random
             child: center
         );
